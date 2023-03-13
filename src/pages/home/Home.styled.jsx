@@ -1,14 +1,25 @@
 import styled from 'styled-components';
 
 export const Title = styled.h1`
-  text-align: center;
+  /* text-align: center; */
 `;
 export const List = styled.ul`
-  margin: 0 auto;
+  position: absolute;
+  bottom: 10px;
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-  max-width: 1600px;
+  margin-left: 100px;
+  max-width: 1450px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+
+  /* hidden scroll-bar */
+  -ms-overflow-x-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  & a {
+    scroll-snap-align: start;
+  }
 `;

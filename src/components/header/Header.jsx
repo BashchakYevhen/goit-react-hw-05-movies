@@ -1,4 +1,4 @@
-import { StyledLink } from 'components/movieDetails/movieDetails.style';
+import { StyledLink } from 'components/header/Header.styled';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Nav } from './Header.styled';

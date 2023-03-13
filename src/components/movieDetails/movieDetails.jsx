@@ -14,18 +14,24 @@ const MoviesDetails = () => {
       .then(response => setMovieData(response.data))
       .catch(error => console.log(error));
   }, [id]);
-  const { title, poster_path, overview, release_date, vote_average } =
-    movieData;
+  const {
+    title,
+    // poster_path,
+    overview,
+    release_date,
+    backdrop_path,
+    vote_average,
+  } = movieData;
   return (
     <>
       {' '}
       <div>
         <StyledLink to={toSiteBack}> Go back</StyledLink>
         <Box>
-          <Poster
+          {/* <Poster
             alt={title}
-            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-          ></Poster>
+            src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
+          ></Poster> */}
           <FilmInfo>
             <Title>{title}</Title>
             <Title>Overview</Title>
@@ -36,12 +42,12 @@ const MoviesDetails = () => {
             <p>{vote_average}</p>
           </FilmInfo>
         </Box>
-        <StyledLink to={'Cast'} state={{ from: location }}>
+        {/* <StyledLink to={'Cast'} state={{ from: location }}>
           Cast
         </StyledLink>
         <StyledLink to={'Review'} state={{ from: location }}>
           Review
-        </StyledLink>
+        </StyledLink> */}
         <Outlet />
       </div>
     </>

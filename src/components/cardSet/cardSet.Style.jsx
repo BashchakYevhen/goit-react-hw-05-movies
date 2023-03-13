@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-export const FilmCard = styled.li``;
+export const FilmCard = styled.li`
+  position: relative;
+  &:hover {
+    bottom: 10px;
+  }
+`;
 export const FilmImg = styled.img`
-  height: 380px;
-  width: 100%;
+  height: 220px;
 `;
