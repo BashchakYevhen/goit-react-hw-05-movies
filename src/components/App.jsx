@@ -18,15 +18,14 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Header />}>
-          <Route path="/" element={<Home />}>
-            <Route path="/movies" element={<Movies />} />
-            <Route path="/movies/:id" element={<MoviesDetails />}>
-              {/* <Route path="cast" element={<Cast />} /> */}
-              {/* <Route path="review" element={<Review />} /> */}
-            </Route>
+          <Route index element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:id" element={<MoviesDetails />}>
+            {/* <Route path="cast" element={<Cast />} /> */}
+            {/* <Route path="review" element={<Review />} /> */}
           </Route>
-          <Route path="*" element={<Navigate to="/" />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <GlobalStyle />
     </>

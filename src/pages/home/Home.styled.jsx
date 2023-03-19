@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-export const Title = styled.h1`
-  /* text-align: center; */
+export const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 `;
+
 export const List = styled.ul`
   position: absolute;
   bottom: 10px;
@@ -22,4 +27,9 @@ export const List = styled.ul`
   & a {
     scroll-snap-align: start;
   }
+`;
+export const Box = styled.div`
+  width: 1403px;
+  height: 100%;
+  margin: 0 auto;
 `;

@@ -2,19 +2,25 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Box = styled.div`
+  background-color: rgba(0, 0, 0, 0.44);
+  color: #fff;
   display: flex;
-  margin: 10px 0;
+  flex-direction: column;
+  padding: 30px 15px 30px;
+  width: 50%;
+  height: 490px;
 `;
-export const Poster = styled.img`
-  height: 500px;
-  max-width: 400px;
-  margin-right: 10px;
-`;
-export const FilmInfo = styled.div`
-  width: 900px;
+
+export const TitleFilm = styled.h2`
+  margin-bottom: 20px;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 90px;
 `;
 export const Title = styled.h3`
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 `;
 export const StyledLink = styled(NavLink)`
   position: relative;
@@ -32,4 +38,7 @@ export const StyledLink = styled(NavLink)`
   &.active {
     text-decoration: underline;
   }
+`;
+export const Text = styled.p`
+  margin-bottom: 10px;
 `;
