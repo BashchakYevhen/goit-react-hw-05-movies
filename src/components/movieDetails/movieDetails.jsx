@@ -1,9 +1,6 @@
 import { Box, Title, Text, TitleFilm } from './movieDetails.style';
 
 const MoviesDetails = ({ movieData }) => {
-  // const location = useLocation();
-  // const toSiteBack = location.state?.from ?? '/';
-
   return (
     <>
       {movieData ? (

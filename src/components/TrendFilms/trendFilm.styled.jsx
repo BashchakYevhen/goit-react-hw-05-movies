@@ -27,18 +27,22 @@ export const Box = styled.div`
 export const BgBox = styled.div`
   z-index: -1;
   position: absolute;
-  width: 1340px;
-  height: 300px;
   background: rgba(103, 101, 113, 0.34);
   border: 1px solid rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(10px);
+  @media screen and (min-width: 1400px) {
+    width: 1340px;
+    height: 300px;
+  }
 `;
 export const TopList = styled.ul`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 40px;
-  padding: 0px;
+  @media screen and (min-width: 1400px) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    padding: 0px;
+  }
 `;
 
 export const FilmItem = styled.li`

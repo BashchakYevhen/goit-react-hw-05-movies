@@ -9,27 +9,31 @@ export const Container = styled.div`
 `;
 
 export const List = styled.ul`
-  position: absolute;
-  bottom: 10px;
-  display: flex;
-  gap: 10px;
-  margin-left: 100px;
-  max-width: 1450px;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
+  @media screen and (min-width: 1400px) {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    gap: 10px;
+    margin-left: 100px;
+    max-width: 1450px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
 
-  /* hidden scroll-bar */
-  -ms-overflow-x-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  & a {
-    scroll-snap-align: start;
+    /* hidden scroll-bar */
+    -ms-overflow-x-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    & a {
+      scroll-snap-align: start;
+    }
   }
 `;
 export const Box = styled.div`
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  @media screen and (min-width: 1400px) {
+    width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+  }
 `;

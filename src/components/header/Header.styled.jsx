@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 export const Nav = styled.nav`
   position: absolute;
@@ -7,14 +8,19 @@ export const Nav = styled.nav`
   top: 10px;
   z-index: 1;
   transform: translate(-50%);
-  width: 1400px;
+  width: 100%;
   height: 97px;
   padding: 5px 15px;
   display: flex;
   gap: 33px;
   align-items: center;
+  justify-content: space-between;
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.44);
+
+  @media screen and (min-width: 1400px) {
+    width: 1400px;
+  }
 `;
 export const StyledLink = styled(NavLink)`
   color: #fff;
@@ -26,5 +32,28 @@ export const StyledLink = styled(NavLink)`
   line-height: 28px;
   &.active {
     text-decoration: underline;
+  }
+`;
+export const StyledLinkTab = styled(NavLink)`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  color: #fff;
+  text-decoration: none;
+  font-family: 'ABeeZee';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  &.active {
+    text-decoration: underline;
+  }
+`;
+export const BurgerIco = styled(GiHamburgerMenu)`
+  height: 30px;
+  width: 30px;
+  color: #fff;
+  @media screen and (min-width: 768px) {
+    display: none;
   }
 `;
