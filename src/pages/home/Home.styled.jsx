@@ -29,7 +29,7 @@ export const List = styled.ul`
   }
 `;
 export const Box = styled.div`
-  width: 1403px;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
 `;

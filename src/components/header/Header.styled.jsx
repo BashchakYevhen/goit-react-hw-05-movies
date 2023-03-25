@@ -7,7 +7,7 @@ export const Nav = styled.nav`
   top: 10px;
   z-index: 1;
   transform: translate(-50%);
-  width: 1403px;
+  width: 1400px;
   height: 97px;
   padding: 5px 15px;
   display: flex;
