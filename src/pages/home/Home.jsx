@@ -6,16 +6,21 @@ import MoviesDetails from 'components/movieDetails/movieDetails';
 const Home = () => {
   const [trendFilms, setTrendFilms] = useState([]);
   const [BG, setBG] = useState(0);
+
   const changeBG = ind => {
     setBG(ind);
   };
 
-  useEffect(() => {
+  const GetTrends = () => {
     fetchTrend()
       .then(resolve => {
         setTrendFilms(resolve.data.results);
       })
       .catch(reject => console.log(reject));
+  };
+
+  useEffect(() => {
+    GetTrends();
   }, []);
 
   return (

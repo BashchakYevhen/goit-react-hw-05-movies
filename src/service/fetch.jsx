@@ -26,3 +26,7 @@ export async function fetchReview(id) {
     `movie/${id}/reviews?api_key=${KEY}&language=en-US&page=1`
   );
 }
+
+export async function fetchTrailer(id) {
+  return await Axios.get(`movie/${id}/videos?api_key=${KEY}&language=en-US`);
+}
