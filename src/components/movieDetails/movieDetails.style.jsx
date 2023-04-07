@@ -41,8 +41,10 @@ export const StyledLink = styled(NavLink)`
 `;
 export const Text = styled.p`
   margin-bottom: 10px;
+  font-family: 'Oswald';
 `;
 export const Button = styled.button`
+  cursor: pointer;
   width: 193px;
   height: 56px;
   background: #64b6d0;

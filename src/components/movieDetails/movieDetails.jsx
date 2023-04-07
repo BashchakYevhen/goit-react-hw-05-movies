@@ -1,22 +1,32 @@
-import { TrailerModal } from 'components/TrailerModal/TrailerModal';
 import { useState } from 'react';
-import { fetchTrailer } from 'service/fetch';
+import { Rating } from 'react-simple-star-rating';
 import { createPortal } from 'react-dom';
+import { fetchTrailer, fetchWatchProviders } from 'service/fetch';
+import { TrailerModal } from 'components/TrailerModal/TrailerModal';
 import { Box, Title, Text, TitleFilm, Button } from './movieDetails.style';
 
 const MoviesDetails = ({ movieData }) => {
   const [isOpened, setIsOpened] = useState(false);
+  const [TrailerData, setTrailerData] = useState([]);
+
+  const GetWatchProvider = () => {
+    fetchWatchProviders(movieData.id)
+      .then(resolve => {
+        console.log(resolve.data.results);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   const toggleClose = () => {
     setIsOpened(!isOpened);
   };
 
-  const [TrailerData, setTrailerData] = useState([]);
   const GetTrailer = () => {
     fetchTrailer(movieData.id)
       .then(resolve => {
         setTrailerData(resolve.data.results);
-        console.log(resolve);
       })
       .catch(error => {
         console.log(error);
@@ -33,11 +43,17 @@ const MoviesDetails = ({ movieData }) => {
           <Title>Release</Title>
           <Text>{movieData.release_date}</Text>
           <Title>Rating</Title>
-          <Text>{movieData.vote_average}</Text>
+          <Rating
+            initialValue={Math.round(movieData.vote_average)}
+            iconsCount={10}
+            readonly={true}
+            size={20}
+          />
           <Button
             onClick={() => {
               toggleClose();
               GetTrailer();
+              GetWatchProvider();
             }}
           >
             Watch trailer

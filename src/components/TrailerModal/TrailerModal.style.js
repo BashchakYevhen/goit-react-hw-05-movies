@@ -10,11 +10,22 @@ export const Modal = styled.div`
   position: relative;
   top: 50%;
   left: 50%;
+  z-index: 2;
+  padding: 10px;
 `;
 
 export const Button = styled.button`
-  width: 20px;
-  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
   background: #64b6d0;
   border-radius: 50px;
+  border: none;
+`;
+export const Frame = styled.iframe`
+  display: block;
+  margin: 0 auto;
 `;

@@ -7,9 +7,9 @@ export async function fetchTrend() {
   return await Axios.get(`trending/movie/day?api_key=${KEY}&language=ukr`);
 }
 
-export async function queryFetch(query) {
+export async function queryFetch(query, pages) {
   return await Axios.get(
-    `search/movie?api_key=${KEY}&language=en-US&query=${query}&page=1`
+    `search/movie?api_key=${KEY}&language=en-US&query=${query}&page=${pages}`
   );
 }
 
@@ -29,4 +29,14 @@ export async function fetchReview(id) {
 
 export async function fetchTrailer(id) {
   return await Axios.get(`movie/${id}/videos?api_key=${KEY}&language=en-US`);
+}
+
+export async function fetchWatchProviders(id) {
+  return await Axios.get(`movie/${id}/watch/providers?api_key=${KEY}`);
+}
+
+export async function fetchPopularMovie(page) {
+  return await Axios.get(
+    `movie/popular?api_key=${KEY}&language=en-US&page=${page}`
+  );
 }

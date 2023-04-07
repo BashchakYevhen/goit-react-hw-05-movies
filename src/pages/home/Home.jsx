@@ -39,6 +39,7 @@ const Home = () => {
       <div style={{ height: '107px' }}></div>
       <Box>
         <MoviesDetails movieData={trendFilms[BG]} />
+
         <TrendFilms trendFilms={trendFilms} changeBG={changeBG} />
       </Box>
     </>

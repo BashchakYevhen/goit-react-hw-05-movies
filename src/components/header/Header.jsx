@@ -1,14 +1,15 @@
 import { BurgerMenu } from 'components/Burger/Burger-menu';
+import { Suspense, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { SiThemoviedatabase } from 'react-icons/si';
+import { IoSearch } from 'react-icons/io5';
+import { Outlet } from 'react-router-dom';
 import {
   BurgerIco,
   StyledLink,
   StyledLinkTab,
+  Nav,
 } from 'components/header/Header.styled';
-import { Suspense, useState } from 'react';
-import { createPortal } from 'react-dom';
-
-import { Outlet } from 'react-router-dom';
-import { Nav } from './Header.styled';
 
 export const Header = () => {
   const [isOpened, setIsOpened] = useState(false);
@@ -22,7 +23,16 @@ export const Header = () => {
       <header>
         <Nav>
           <StyledLink to="/">Home</StyledLink>
-          <StyledLinkTab to="/movies">Movies</StyledLinkTab>
+          <SiThemoviedatabase
+            style={{
+              width: '50px',
+              height: '50px',
+              color: '#fff',
+            }}
+          />
+          <StyledLinkTab to="/movies">
+            <IoSearch />
+          </StyledLinkTab>
           {isOpened ? (
             createPortal(
               <BurgerMenu toggleClose={toggleClose} />,

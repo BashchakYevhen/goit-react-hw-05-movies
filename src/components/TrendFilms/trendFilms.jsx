@@ -9,29 +9,32 @@ import { Track, Poster, FilmItem, Box, BgBox } from './trendFilm.styled';
 export const TrendFilms = ({ trendFilms, changeBG }) => {
   return (
     <Track>
+      {/* <p>Trends 20</p> */}
       <Box>
         <Swiper
-          // slidesPerView={6}
-          // spaceBetween={20}
+          slidesPerView={5}
+          spaceBetween={10}
+          slidesPerGroup={5}
+          loop={true}
           navigation={true}
-          breakpoints={{
-            '@0.00': {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-            480: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 40,
-            },
-            1280: {
-              slidesPerView: 6,
-              spaceBetween: 20,
-            },
-          }}
+          // breakpoints={{
+          //   '@0.00': {
+          //     slidesPerView: 1,
+          //     spaceBetween: 0,
+          //   },
+          //   480: {
+          //     slidesPerView: 2,
+          //     spaceBetween: 20,
+          //   },
+          //   768: {
+          //     slidesPerView: 4,
+          //     spaceBetween: 20,
+          //   },
+          //   1280: {
+          //     slidesPerView: 6,
+          //     spaceBetween: 20,
+          //   },
+          // }}
           modules={[Navigation]}
           className="mySwiper"
         >
@@ -45,7 +48,7 @@ export const TrendFilms = ({ trendFilms, changeBG }) => {
                 >
                   <Poster
                     src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
-                    alt="22"
+                    alt={el.title}
                   />
                 </FilmItem>
               </SwiperSlide>
