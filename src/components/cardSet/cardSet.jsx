@@ -1,5 +1,12 @@
 import { Rating } from 'react-simple-star-rating';
-import { FilmCard, FilmDataBox, FilmImg, OverviewText } from './cardSet.Style';
+import { Link, useLocation } from 'react-router-dom';
+import {
+  FilmCard,
+  FilmDataBox,
+  FilmImg,
+  OverviewText,
+  StyledLink,
+} from './cardSet.Style';
 import { FlexBox } from 'components/FlexBox/FlexBox';
 export const CardSet = ({ film }) => {
   const {
@@ -9,17 +16,24 @@ export const CardSet = ({ film }) => {
     overview,
     release_date,
     vote_average,
+    id,
   } = film;
+
+  const location = useLocation();
 
   return (
     <FilmCard>
-      <FilmImg
-        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-        alt={original_title}
-      />
+      <Link to={`/movies/${id}`} state={{ from: location }}>
+        <FilmImg
+          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+          alt={original_title}
+        />
+      </Link>
       <FilmDataBox>
         <FlexBox>
-          {title ? <h3>{title}</h3> : <h3>{original_title}</h3>}
+          <StyledLink to={`/movies/${id}`} state={{ from: location }}>
+            {title ? <h3>{title}</h3> : <h3>{original_title}</h3>}
+          </StyledLink>
           <span>{release_date}</span>
         </FlexBox>
         <OverviewText>{overview}</OverviewText>

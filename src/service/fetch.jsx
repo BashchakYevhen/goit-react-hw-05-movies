@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Axios from 'axios';
 const KEY = process.env.REACT_APP_KEY;
-console.log( process.env.REACT_APP_KEY)
 axios.defaults.baseURL = ' https://api.themoviedb.org/3';
 
 export async function fetchTrend() {
@@ -30,10 +29,6 @@ export async function fetchReview(id) {
 
 export async function fetchTrailer(id) {
   return await Axios.get(`movie/${id}/videos?api_key=${KEY}&language=en-US`);
-}
-
-export async function fetchWatchProviders(id) {
-  return await Axios.get(`movie/${id}/watch/providers?api_key=${KEY}`);
 }
 
 export async function fetchPopularMovie(page) {

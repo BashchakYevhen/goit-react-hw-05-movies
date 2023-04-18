@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-// import { Link, useLocation } from 'react-router-dom';
+import 'react-notifications/lib/notifications.css';
+import {
+  NotificationContainer,
+  NotificationManager,
+} from 'react-notifications';
+import { SitePagination } from 'components/Pagination/Pagination';
 import { IoSearch } from 'react-icons/io5';
 import { CardSet } from 'components/cardSet/cardSet';
 import { fetchPopularMovie, queryFetch } from 'service/fetch';
@@ -10,17 +15,22 @@ import {
   SearchForm,
   SearchButton,
 } from 'pages/movies/Movie.styled';
-import { SitePagination } from 'components/Pagination/Pagination';
+import { useParams } from 'react-router-dom';
+
+// import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const params = useParams();
+  const [currentPage, setCurrentPage] = useState();
   const [pagesCount, setPagesCount] = useState(1);
   const [query, setQuery] = useState('');
   const [queryFilms, setQueryFilms] = useState([]);
+  // const [searchParams, setSearchParams] = useSearchParams();
 
+  console.log(params);
   console.log(currentPage);
-
   useEffect(() => {
+    console.log(currentPage);
     fetchPopularMovie(currentPage)
       .then(response => {
         return (
@@ -28,7 +38,10 @@ const Movies = () => {
           setQueryFilms(response.data.results)
         );
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        NotificationManager.error(error.message, '', 5000);
+        console.log(error);
+      });
   }, [currentPage]);
 
   useEffect(() => {
@@ -42,7 +55,10 @@ const Movies = () => {
           setQueryFilms(response.data.results)
         );
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        NotificationManager.error(error.message, '', 5000);
+      });
   }, [currentPage, query]);
 
   const handleSubmit = e => {
@@ -52,10 +68,23 @@ const Movies = () => {
     setQuery(formQuery);
   };
 
-  // const location = useLocation();.
+  const changePage = v => {
+    // setCurrentPage(v);
+    // fetchPopularMovie(v)
+    //   .then(response => {
+    //     return (
+    //       setPagesCount(response.data.total_pages),
+    //       setQueryFilms(response.data.results)
+    //     );
+    //   })
+    //   .catch(error => {
+    //     NotificationManager.error(error.message, '', 5000);
+    //     console.log(error);
+    //   });
+  };
+
   return (
     <>
-      <div style={{ height: '107px' }}></div>
       <Box>
         <SearchForm onSubmit={handleSubmit}>
           <Input name="input" type="text" placeholder="Search film" />
@@ -63,28 +92,17 @@ const Movies = () => {
             <IoSearch />
           </SearchButton>
         </SearchForm>
-        {queryFilms.length !== 0 ? (
+        {queryFilms.length !== 0 && (
           <List>
             {queryFilms.map(film => {
-              return (
-                <CardSet film={film} key={film.id}>
-                  {/* <Link
-                  to={`/movies/${film.id}`}
-                  state={{ from: location }}
-                  key={film.id}
-                >
-                  {CardSet(film)}
-                </Link>  */}
-                </CardSet>
-              );
+              return <CardSet film={film} key={film.id}></CardSet>;
             })}
           </List>
-        ) : (
-          <p>No items for search</p>
         )}
+        <NotificationContainer />
         <SitePagination
           pages={pagesCount}
-          handleChange={setCurrentPage}
+          handleChange={changePage}
           currentPage={currentPage}
         />
       </Box>

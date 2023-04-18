@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchTrend } from 'service/fetch';
 import { Container, Box } from './Home.styled';
 import { TrendFilms } from 'components/TrendFilms/trendFilms';
-import MoviesDetails from 'components/movieDetails/movieDetails';
+import MoviesPreview from 'components/moviePreview/moviePreview';
 const Home = () => {
   const [trendFilms, setTrendFilms] = useState([]);
   const [BG, setBG] = useState(0);
@@ -38,8 +38,7 @@ const Home = () => {
       ></Container>
       <div style={{ height: '107px' }}></div>
       <Box>
-        <MoviesDetails movieData={trendFilms[BG]} />
-
+        <MoviesPreview movieData={trendFilms[BG]} />
         <TrendFilms trendFilms={trendFilms} changeBG={changeBG} />
       </Box>
     </>

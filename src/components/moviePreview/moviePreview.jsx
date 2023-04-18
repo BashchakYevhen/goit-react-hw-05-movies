@@ -1,23 +1,18 @@
 import { useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import { createPortal } from 'react-dom';
-import { fetchTrailer, fetchWatchProviders } from 'service/fetch';
+import 'react-notifications/lib/notifications.css';
+import {
+  NotificationContainer,
+  NotificationManager,
+} from 'react-notifications';
+import { fetchTrailer } from 'service/fetch';
 import { TrailerModal } from 'components/TrailerModal/TrailerModal';
-import { Box, Title, Text, TitleFilm, Button } from './movieDetails.style';
+import { Box, Title, Text, TitleFilm, Button } from './moviePreview.style';
 
-const MoviesDetails = ({ movieData }) => {
+const MoviesPreview = ({ movieData }) => {
   const [isOpened, setIsOpened] = useState(false);
   const [TrailerData, setTrailerData] = useState([]);
-
-  const GetWatchProvider = () => {
-    fetchWatchProviders(movieData.id)
-      .then(resolve => {
-        console.log(resolve.data.results);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
 
   const toggleClose = () => {
     setIsOpened(!isOpened);
@@ -29,13 +24,14 @@ const MoviesDetails = ({ movieData }) => {
         setTrailerData(resolve.data.results);
       })
       .catch(error => {
+        NotificationManager.error(error.message, '', 5000);
         console.log(error);
       });
   };
 
   return (
     <>
-      {movieData ? (
+      {movieData && (
         <Box>
           <TitleFilm>{movieData.title}</TitleFilm>
           <Title>Overview</Title>
@@ -53,7 +49,6 @@ const MoviesDetails = ({ movieData }) => {
             onClick={() => {
               toggleClose();
               GetTrailer();
-              GetWatchProvider();
             }}
           >
             Watch trailer
@@ -68,13 +63,10 @@ const MoviesDetails = ({ movieData }) => {
               />,
               document.getElementById('modal')
             )}
+          <NotificationContainer />
         </Box>
-      ) : (
-        <></>
       )}
     </>
   );
 };
-export default MoviesDetails;
-
-/* <StyledLink to={toSiteBack}> Go back</StyledLink> */
+export default MoviesPreview;

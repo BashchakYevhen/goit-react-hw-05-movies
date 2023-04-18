@@ -11,13 +11,14 @@ export const List = styled.ul`
   }
 `;
 export const Box = styled.div`
+  margin-top: 107px;
   @media screen and (min-width: 1400px) {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 1400px;
     height: 100%;
-    margin: 0 auto;
+    margin: 107px auto 0;
     padding: 20px;
   }
 `;

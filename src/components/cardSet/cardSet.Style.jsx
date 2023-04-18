@@ -1,11 +1,16 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const FilmCard = styled.li`
-  background-color: #00000059;
+  background-color: #fff;
   @media (min-width: 768px) {
     display: flex;
     width: 1200px;
     height: 220px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px;
+  }
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px;
   }
 `;
 export const FilmImg = styled.img`
@@ -23,4 +28,8 @@ export const FilmDataBox = styled.div`
 export const OverviewText = styled.p`
   height: 160px;
   margin-top: 5px;
+`;
+export const StyledLink = styled(Link)`
+  color: #222;
+  text-decoration: none;
 `;

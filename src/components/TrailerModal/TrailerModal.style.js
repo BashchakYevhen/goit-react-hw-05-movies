@@ -1,29 +1,37 @@
 import styled from 'styled-components';
 
 export const Modal = styled.div`
-  background: rgba(103, 101, 113, 0.34);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(10px);
-  width: 920px;
-  height: 800px;
   transform: translate(-50%, -50%);
   position: relative;
   top: 50%;
   left: 50%;
   z-index: 2;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(103, 101, 113, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  width: 720px;
+  height: 480px;
 `;
 
 export const Button = styled.button`
   position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
+  top: -35px;
+  right: -35px;
   width: 30px;
   height: 30px;
-  background: #64b6d0;
+  background: rgba(100, 182, 208, 0.5);
   border-radius: 50px;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+    background: rgba(100, 182, 208, 1);
+  }
 `;
 export const Frame = styled.iframe`
   display: block;

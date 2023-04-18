@@ -1,4 +1,5 @@
 import React from 'react';
+import { ImCross } from 'react-icons/im';
 import { BackDrop } from 'components/BackDrop/BackDrop';
 import { Modal, Button, Frame } from './TrailerModal.style';
 
@@ -6,7 +7,6 @@ export const TrailerModal = ({ toggleClose, TrailerData, setTrailerData }) => {
   return (
     <BackDrop
       onClick={e => {
-        console.log(e);
         toggleClose();
         setTrailerData([]);
       }}
@@ -14,12 +14,11 @@ export const TrailerModal = ({ toggleClose, TrailerData, setTrailerData }) => {
       <Modal>
         <Button
           onClick={e => {
-            console.log(e);
             toggleClose();
             setTrailerData([]);
           }}
         >
-          X
+          <ImCross />
         </Button>
         <Frame
           title="YouTube"

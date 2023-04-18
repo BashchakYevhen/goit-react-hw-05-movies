@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { GrLogin } from 'react-icons/gr';
 
 export const Nav = styled.nav`
   position: absolute;
@@ -23,6 +24,7 @@ export const Nav = styled.nav`
   }
 `;
 export const StyledLink = styled(NavLink)`
+  margin-right: 15px;
   color: #fff;
   text-decoration: none;
   font-family: 'ABeeZee';
@@ -35,9 +37,6 @@ export const StyledLink = styled(NavLink)`
   }
 `;
 export const StyledLinkTab = styled(NavLink)`
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
   color: #fff;
   text-decoration: none;
   font-family: 'ABeeZee';
@@ -56,4 +55,23 @@ export const BurgerIco = styled(GiHamburgerMenu)`
   @media screen and (min-width: 768px) {
     display: none;
   }
+`;
+export const LoginIco = styled(GrLogin)`
+  width: 40px;
+  height: 40px;
+  & path {
+    stroke: #fff;
+  }
+`;
+export const LoginFormBox = styled.div`
+  transform: translate(-50%, -50%);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 700px;
+  background-color: #fff;
 `;
