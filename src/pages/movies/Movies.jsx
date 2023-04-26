@@ -26,11 +26,8 @@ const Movies = () => {
   const [query, setQuery] = useState('');
   const [queryFilms, setQueryFilms] = useState([]);
   // const [searchParams, setSearchParams] = useSearchParams();
-
   console.log(params);
-  console.log(currentPage);
   useEffect(() => {
-    console.log(currentPage);
     fetchPopularMovie(currentPage)
       .then(response => {
         return (

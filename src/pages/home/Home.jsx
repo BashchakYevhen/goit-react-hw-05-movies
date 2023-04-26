@@ -3,6 +3,8 @@ import { fetchTrend } from 'service/fetch';
 import { Container, Box } from './Home.styled';
 import { TrendFilms } from 'components/TrendFilms/trendFilms';
 import MoviesPreview from 'components/moviePreview/moviePreview';
+import { useDispatch } from 'react-redux';
+import { Trend } from 'redux/operations';
 const Home = () => {
   const [trendFilms, setTrendFilms] = useState([]);
   const [BG, setBG] = useState(0);
@@ -10,18 +12,11 @@ const Home = () => {
   const changeBG = ind => {
     setBG(ind);
   };
-
-  const GetTrends = () => {
-    fetchTrend()
-      .then(resolve => {
-        setTrendFilms(resolve.data.results);
-      })
-      .catch(reject => console.log(reject));
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    GetTrends();
-  }, []);
+    dispatch(Trend());
+  }, [dispatch]);
 
   return (
     <>

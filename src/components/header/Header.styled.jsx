@@ -63,15 +63,3 @@ export const LoginIco = styled(GrLogin)`
     stroke: #fff;
   }
 `;
-export const LoginFormBox = styled.div`
-  transform: translate(-50%, -50%);
-  position: relative;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 500px;
-  height: 700px;
-  background-color: #fff;
-`;

@@ -1,7 +1,7 @@
 import { Suspense, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { SiThemoviedatabase } from 'react-icons/si';
-import { ImCross } from 'react-icons/im';
+
 import { Outlet } from 'react-router-dom';
 import { BurgerMenu } from 'components/Burger/Burger-menu';
 import {
@@ -10,11 +10,9 @@ import {
   StyledLinkTab,
   Nav,
   LoginIco,
-  LoginFormBox,
 } from 'components/header/Header.styled';
 import { BackDrop } from 'components/BackDrop/BackDrop';
 import LoginForm from 'components/LoginForm/LoginForm';
-import { Button } from 'components/TrailerModal/TrailerModal.style';
 
 export const Header = () => {
   const [isOpened, setIsOpened] = useState(false);
@@ -50,12 +48,7 @@ export const Header = () => {
       {isLoginOpen &&
         createPortal(
           <BackDrop>
-            <LoginFormBox>
-              <Button onClick={toggleLogin}>
-                <ImCross />
-              </Button>
-              <LoginForm />
-            </LoginFormBox>
+            <LoginForm toggleLogin={toggleLogin} />
           </BackDrop>,
           document.getElementById('modal')
         )}

@@ -12,7 +12,7 @@ import { Box, InfoBox, Poster, Title } from './MovieDetails.styled';
 const MovieDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
-  const [providers, setProviders] = useState(null);
+  // const [providers, setProviders] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -26,13 +26,14 @@ const MovieDetails = () => {
 
     fetchCast(id)
       .then(resolve => {
-        setProviders(resolve.data);
+        console.log(resolve);
+        // setProviders(resolve.data);
       })
       .catch(error => {
         NotificationManager.error(error.message, '', 5000);
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   //   console.log(data, providers, location);
   return (

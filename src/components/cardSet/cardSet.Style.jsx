@@ -10,7 +10,7 @@ export const FilmCard = styled.li`
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px;
   }
   &:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px;
+    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.19), 0 6px 6px;
   }
 `;
 export const FilmImg = styled.img`

@@ -47,15 +47,15 @@ export const Button = styled.button`
   cursor: pointer;
   width: 193px;
   height: 56px;
-  background: #64b6d0;
   border-radius: 41px;
 
+  background: #64b6d0;
   font-family: 'ABeeZee';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0.04em;
-  color: #ffffff;
   border: none;
+  color: #ffffff;
 `;
