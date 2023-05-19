@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchTrend } from 'service/fetch';
+// import { fetchTrend } from 'service/fetch';
 import { Container, Box } from './Home.styled';
 import { TrendFilms } from 'components/TrendFilms/trendFilms';
 import MoviesPreview from 'components/moviePreview/moviePreview';
@@ -8,7 +8,7 @@ import { Trend } from 'redux/operations';
 const Home = () => {
   const [trendFilms, setTrendFilms] = useState([]);
   const [BG, setBG] = useState(0);
-
+  console.log(setTrendFilms);
   const changeBG = ind => {
     setBG(ind);
   };
